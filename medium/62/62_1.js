@@ -36,3 +36,17 @@ var uniquePaths = function (m, n) {
 console.log(uniquePaths(3, 7));
 console.log(uniquePaths(3, 2));
 console.log(uniquePaths(100, 100));
+
+/**
+ * @param {Function} fn
+ * */
+function timedCall(fn, ...args) {
+  const start = performance.now();
+  const result = fn(...args);
+  const end = performance.now();
+  console.log(`Execution time: ${end - start} ms`);
+  return result;
+}
+
+const foo = timedCall(uniquePaths, 100, 100);
+console.log(foo);
